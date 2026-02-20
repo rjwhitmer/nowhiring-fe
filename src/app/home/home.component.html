@@ -1,0 +1,11 @@
+@for (job of jobs; track job.id) {
+    <div>
+        <p>{{ job.title }}</p>
+        <p>{{ job.description }}</p>
+        <p>Base Salary: {{ job.starting_base_salary_range }}</p>
+    </div>
+} @empty {
+    <div>
+        <p>No jobs!</p>
+    </div>
+}
