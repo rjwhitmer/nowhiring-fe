@@ -1,0 +1,14 @@
+<main>
+	<header class="now-hiring"></header>
+	<mat-sidenav-container>
+		<mat-sidenav #sidenav mode="side" [(opened)]="isOpen">Sidebar</mat-sidenav>
+		<mat-sidenav-content>
+			<app-header></app-header>
+			<section class="content ml-8">
+				<p><button type="button" mat-icon-button (click)="sidenav.toggle()"><mat-icon aria-label="Side nav toggle icon" fontIcon="menu">menu</mat-icon></button></p>
+			</section>
+			<router-outlet></router-outlet>
+			<app-footer></app-footer>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
+</main>

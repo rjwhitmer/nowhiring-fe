@@ -1,20 +1,32 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { Job } from './job/job';
-import { JobList } from './job/job-list/job-list';
+import { Home } from './pages/home/home';
+import { Job } from './pages/job/job';
+import { JobList } from './pages/job/job-list/job-list';
+import { Content } from '../app/layouts/content/content.component';
+import { Login } from './pages/login/login';
 
 export const routes: Routes = [
     {
-        path: '',
-        component: Home
+        path: 'login',
+        component: Login
     },
     {
-        path: 'jobs',
-        component: Job,
+        path: '',
+        component: Content,
         children: [
             {
                 path: '',
-                component: JobList
+                component: Home
+            },
+            {
+                path: 'jobs',
+                component: Job,
+                children: [
+                    {
+                        path: '',
+                        component: JobList
+                    }
+                ]
             }
         ]
     }

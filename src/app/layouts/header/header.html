@@ -4,5 +4,13 @@
             <a class="text-4xl ml-8 text-shadow-sm border-b pb-1" style="color: #36656B; font-weight: 600;">Now Hiring</a>
             <h1 class="mt-2 ml-8"  style="color: #36656B; font-weight: 600;">A better way to get hired</h1>
         </div>
+        @if(appStore.user()) {
+            <button mat-icon-button [mat-menu-trigger-for]="profileMenu">
+                <mat-icon>logout</mat-icon>
+            </button>
+            <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item (click)="appStore.logout()">Log out</button>
+            </mat-menu>
+        }
     </div>
 </div>

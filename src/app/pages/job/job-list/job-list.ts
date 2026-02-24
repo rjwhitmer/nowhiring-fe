@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { JobService } from '../../../services/job-service';
-import { JobInterface } from '../../../shared/models/job-interface';
+import { JobService } from '../../../../services/job-service';
+import { JobInterface } from '../../../../shared/models/job-interface';
 
 @Component({
   selector: 'app-job-list',
