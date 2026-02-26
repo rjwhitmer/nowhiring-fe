@@ -8,7 +8,7 @@
         <form class="flex flex-col gap-5">
             <mat-form-field class="w-full">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" placeholder="Enter your email" />
+                <input [formField]="loginForm.email" matInput type="email" placeholder="Enter your email" />
                 <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
     
@@ -16,6 +16,7 @@
                 <mat-label>Password</mat-label>
                 <input 
                     matInput
+                    [formField]="loginForm.password"
                     [type]="hidePassword() ? 'password' : 'text'"
                     placeholder="Enter your password"
                 />
@@ -29,7 +30,7 @@
                     <mat-icon>{{hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon> 
                 </button>
             </mat-form-field>
-            <button mat-flat-button class="w-full mt-3" (click)="appStore.login()">Login</button>
+            <button mat-flat-button class="w-full mt-3" type="submit" (click)="onSubmit()">Login</button>
         </form>
     </div>
 </div>

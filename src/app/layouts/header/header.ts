@@ -7,8 +7,10 @@ import { MatMenuModule } from '@angular/material/menu'
   selector: 'app-header',
   imports: [MatIconModule, MatMenuModule],
   templateUrl: './header.html',
-  styleUrl: './header.css',
+  styleUrl: './header.css'
+  // providers: [AppStore]
 })
 export class Header {
   appStore = inject(AppStore);
+  // user = this.appStore.user();
 }

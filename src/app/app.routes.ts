@@ -3,7 +3,7 @@ import { Home } from './pages/home/home';
 import { Job } from './pages/job/job';
 import { JobList } from './pages/job/job-list/job-list';
 import { Content } from '../app/layouts/content/content.component';
-import { Login } from './pages/login/login';
+import { Login } from './pages/login/login.component';
 
 export const routes: Routes = [
     {
