@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
     constructor(private http: HttpClient) {}
 
-    login(email: string, password: string): Observable<UserInterface> {
-        return this.http.post<UserInterface>('http://localhost:3000/login', 
+    login(email: string, password: string): Observable<any> {
+        return this.http.post<any>('http://localhost:3000/login', 
             {
                 "user": {
                     "email": email,
@@ -18,5 +18,9 @@ export class AuthService {
                 }
             }
         )
+    }
+
+    logout(): Observable<any> {
+        return this.http.delete('http://localhost:3000/logout');
     }
 }

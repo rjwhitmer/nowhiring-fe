@@ -3,7 +3,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field"
 import { MatInputModule } from "@angular/material/input"
 import { MatIconModule } from "@angular/material/icon"
-import { AppStore } from '../../app.store';
+import { AppStore } from '../../app-store';
 import { form, FormField } from '@angular/forms/signals'
 
 @Component({
@@ -23,9 +23,9 @@ export class Login {
 
   loginForm = form(this.loginModel);
 
-  async onSubmit() {
+  onSubmit() {
     const formData = this.loginModel();
     console.log('formData', formData)
-    await this.appStore.login(formData.email, formData.password);
+    this.appStore.login(formData.email, formData.password);
   }
 }

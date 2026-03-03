@@ -1,7 +1,7 @@
 import { Router } from "@angular/router";
 import { UserInterface } from "../shared/models/user-interface";
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals'
-import { inject } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { AuthService } from '../services/authentication-service';
 
 type AppState = { user: UserInterface | undefined };
@@ -12,18 +12,21 @@ export const AppStore = signalStore(
     withState(initialState),
     withMethods((store, router = inject(Router), authService = inject(AuthService)) => ({
         login: (email: string, password: string) => {
+            let response: UserInterface;
             authService.login(email, password).subscribe({
                 next: data => {
-                    console.log('data', data)
-                    patchState(store, { user: { email : data.email, name: data.name }} )
+                    sessionStorage.setItem('userEmail', data.email)
                 }
             })
-
             router.navigate([""])
         },
         logout: () => {
-            patchState(store, { user: undefined })
-            router.navigate(["/login"])
+            authService.logout().subscribe({
+                next: () => {
+                    sessionStorage.removeItem('userEmail')
+                }
+            })
+            window.location.reload();
         }
     }))
 )
