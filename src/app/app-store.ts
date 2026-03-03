@@ -12,7 +12,6 @@ export const AppStore = signalStore(
     withState(initialState),
     withMethods((store, router = inject(Router), authService = inject(AuthService)) => ({
         login: (email: string, password: string) => {
-            let response: UserInterface;
             authService.login(email, password).subscribe({
                 next: data => {
                     sessionStorage.setItem('userEmail', data.email)

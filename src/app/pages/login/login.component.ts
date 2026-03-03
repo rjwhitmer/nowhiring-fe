@@ -5,10 +5,11 @@ import { MatInputModule } from "@angular/material/input"
 import { MatIconModule } from "@angular/material/icon"
 import { AppStore } from '../../app-store';
 import { form, FormField } from '@angular/forms/signals'
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-login',
-  imports: [MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule, FormField],
+  imports: [MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule, FormField, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.css',
 })
@@ -25,7 +26,6 @@ export class Login {
 
   onSubmit() {
     const formData = this.loginModel();
-    console.log('formData', formData)
     this.appStore.login(formData.email, formData.password);
   }
 }

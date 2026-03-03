@@ -16,6 +16,5 @@ export class Header implements OnInit{
 
   public ngOnInit(): void {
     this.user = sessionStorage.getItem('userEmail');
-    console.log("user", this.user)
   }
 }
