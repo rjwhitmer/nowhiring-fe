@@ -5,7 +5,7 @@ import { JobList } from './pages/job/job-list/job-list';
 import { Content } from '../app/layouts/content/content.component';
 import { Login } from './pages/login/login.component';
 import { Employee } from './pages/signup/employee/employee.component';
-import { Company } from './pages/signup/company/company';
+import { Company } from './pages/signup/company/company.component';
 import { Signup } from './pages/signup/signup.component';
 
 export const routes: Routes = [
@@ -17,15 +17,15 @@ export const routes: Routes = [
         path: 'signup',
         component: Signup,
         children: [
-            {
-                path: 'employee',
-                component: Employee
-            },
-            {
-                path: 'company',
-                component: Company
-            }
         ]
+    },
+    {
+        path: 'signup/employee',
+        component: Employee
+    },
+    {
+        path: 'signup/company',
+        component: Company
     },
     {
         path: '',

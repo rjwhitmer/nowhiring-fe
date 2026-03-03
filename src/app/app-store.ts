@@ -14,6 +14,7 @@ export const AppStore = signalStore(
         login: (email: string, password: string) => {
             authService.login(email, password).subscribe({
                 next: data => {
+                    console.log('data', data);
                     sessionStorage.setItem('userEmail', data.email)
                 }
             })
